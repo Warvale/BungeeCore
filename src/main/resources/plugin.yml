@@ -1,0 +1,4 @@
+name: BungeeCore
+main: net.warvale.bungeecore.Bungeecore
+version: 1.0
+author: Warvale
