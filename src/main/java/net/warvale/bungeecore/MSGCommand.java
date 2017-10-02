@@ -24,11 +24,14 @@ public class MSGCommand extends Command {
             sender.sendMessage(new TextComponent(ChatColor.RED+"Cannot find that player!"));
             return;
         }
+        if (target.getName().equals(sender.getName())) {
+            sender.sendMessage(new TextComponent(ChatColor.RED+"You cannot message yourself."));
+        }
         String msg = "";
         for (int i = 1; i < args.length; i++) {
-            msg+=args[i];
+            msg+=" "+args[i];
         }
         target.sendMessage(new TextComponent(ChatColor.AQUA+"From "+sender.getName()+": "+msg));
-        sender.sendMessage(new TextComponent(ChatColor.AQUA+"To "+sender.getName()+": "+msg));
+        sender.sendMessage(new TextComponent(ChatColor.AQUA+"To "+target.getName()+": "+msg));
     }
 }
