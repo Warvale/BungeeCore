@@ -8,5 +8,6 @@ public class Bungeecore extends Plugin{
     @Override
     public void onEnable() {
         ProxyServer.getInstance().getPluginManager().registerCommand(this, new MSGCommand());
+        ProxyServer.getInstance().getPluginManager().registerCommand(this, new ReplyCommand());
     }
 }

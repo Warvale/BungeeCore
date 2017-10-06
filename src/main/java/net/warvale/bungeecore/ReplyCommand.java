@@ -9,7 +9,7 @@ import net.md_5.bungee.api.plugin.Command;
 public class ReplyCommand extends Command {
 
     public ReplyCommand() {
-        super("msg","warvale.msg","pm","dm","message","tell");
+        super("reply","warvale.reply","r");
     }
 
     @Override
