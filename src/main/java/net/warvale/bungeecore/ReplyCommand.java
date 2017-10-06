@@ -8,9 +8,9 @@ import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.plugin.Command;
 import sun.plugin2.message.Message;
 
-public class MSGCommand extends Command {
+public class ReplyCommand extends Command {
 
-    public MSGCommand() {
+    public ReplyCommand() {
         super("msg","warvale.msg","pm","dm","message","tell");
     }
 
@@ -21,15 +21,14 @@ public class MSGCommand extends Command {
             return;
         }
         ProxiedPlayer player = (ProxiedPlayer) sender;
-        if (args.length < 2) {
-            sender.sendMessage(new TextComponent(ChatColor.RED+"Usage: /msg <player> <message>"));
+        if (args.length < 1) {
+            sender.sendMessage(new TextComponent(ChatColor.RED+"Usage: /reply <message>"));
             return;
         }
-        ProxiedPlayer target = ProxyServer.getInstance().getPlayer(args[0]);
-        if (target == null) {
+        if (MessageMan.getLast(player) == null) {
             sender.sendMessage(new TextComponent(ChatColor.RED+"Cannot find that player!"));
-            return;
         }
+        ProxiedPlayer target = MessageMan.getLast(player);
         if (target.getName().equals(sender.getName())) {
             sender.sendMessage(new TextComponent(ChatColor.RED+"You cannot message yourself."));
         }
@@ -39,6 +38,5 @@ public class MSGCommand extends Command {
         }
         target.sendMessage(new TextComponent(ChatColor.AQUA+"From "+sender.getName()+":"+ChatColor.WHITE+msg));
         sender.sendMessage(new TextComponent(ChatColor.AQUA+"To "+target.getName()+":"+ChatColor.WHITE+msg));
-        MessageMan.setLast(player, target);
     }
 }
