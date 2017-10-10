@@ -31,6 +31,7 @@ public class MSGCommand extends Command {
         }
         if (target.getName().equals(sender.getName())) {
             sender.sendMessage(new TextComponent(ChatColor.RED+"You cannot message yourself."));
+            return;
         }
         String msg = "";
         for (int i = 1; i < args.length; i++) {

@@ -25,10 +25,12 @@ public class ReplyCommand extends Command {
         }
         if (MessageMan.getLast(player) == null) {
             sender.sendMessage(new TextComponent(ChatColor.RED+"Cannot find that player!"));
+            return;
         }
         ProxiedPlayer target = MessageMan.getLast(player);
         if (target.getName().equals(sender.getName())) {
             sender.sendMessage(new TextComponent(ChatColor.RED+"You cannot message yourself."));
+            return;
         }
         String msg = "";
         for (int i = 0; i < args.length; i++) {
