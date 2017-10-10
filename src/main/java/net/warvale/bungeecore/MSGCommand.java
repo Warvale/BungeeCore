@@ -39,5 +39,6 @@ public class MSGCommand extends Command {
         target.sendMessage(new TextComponent(ChatColor.AQUA+"From "+sender.getName()+":"+ChatColor.WHITE+msg));
         sender.sendMessage(new TextComponent(ChatColor.AQUA+"To "+target.getName()+":"+ChatColor.WHITE+msg));
         MessageMan.setLast(player, target);
+        MessageMan.setLast(target, player);
     }
 }

@@ -31,7 +31,7 @@ public class ReplyCommand extends Command {
             sender.sendMessage(new TextComponent(ChatColor.RED+"You cannot message yourself."));
         }
         String msg = "";
-        for (int i = 1; i < args.length; i++) {
+        for (int i = 0; i < args.length; i++) {
             msg+=" "+args[i];
         }
         target.sendMessage(new TextComponent(ChatColor.AQUA+"From "+sender.getName()+":"+ChatColor.WHITE+msg));
