@@ -9,5 +9,7 @@ public class Bungeecore extends Plugin{
     public void onEnable() {
         ProxyServer.getInstance().getPluginManager().registerCommand(this, new MSGCommand());
         ProxyServer.getInstance().getPluginManager().registerCommand(this, new ReplyCommand());
+        ProxyServer.getInstance().getPluginManager().registerCommand(this, new AlertCommand());
+        ProxyServer.getInstance().getPluginManager().registerCommand(this, new StaffChatCommand());
     }
 }
